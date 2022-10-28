@@ -1,5 +1,5 @@
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import plotly.express as px
 import statsmodels.formula.api as smf
 import streamlit as st
