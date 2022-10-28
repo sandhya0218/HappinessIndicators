@@ -133,6 +133,7 @@ def home():
 
 
 def eda(df):
+    st.write('Distributions of Numerical Predictors')
     df.hist(figsize = (10,10))
     st.pyplot()
 
