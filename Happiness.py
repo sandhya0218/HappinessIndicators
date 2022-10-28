@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import statsmodels.formula.api as smf
 import streamlit as st
+from PIL import Image
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -129,6 +130,9 @@ def display(pg, df):
 
 
 def home():
+    img = Image.open("happy_world.png")
+    st.image(img, width = 300)
+    
     st.title('Welcome to the World Happiness Report Analysis!')
     st.write('Created by: Ryan Dancoes, Sydney Gallo, and Sandhya Sangappa\n')
     st.write('The focus of our research is to understand what indicators influence a country’s happiness. We are looking to identify how indicators in the World  are associated with improvements in happiness for countries and broader regions. Our analysis will discern which indicator(s) should be improved to boost happiness and well-being for the people of a certain area.') 
@@ -138,7 +142,7 @@ def home():
 
 def eda(df):
     st.title('Exploratory Data Analysis')
-    st.write('Distributions of Numerical Predictors')
+    st.header('Distributions of Numerical Predictors')
     df.hist(figsize = (10,10))
     st.pyplot()
 
@@ -165,7 +169,7 @@ def eda(df):
     fig = px.box(df, y='generosity', title='Distribution of Generosity')  # Generosity not on 0-1 scale
     st.plotly_chart(fig)
 
-    st.write('Linear Regression Summary')
+    st.header('Linear Regression Summary')
     mod = smf.ols("happiness ~ log_gdp_per_capita + social_support + healthy_life_expectancy_at_birth + freedom_to_make_life_choices + generosity + perceptions_of_corruption + positive_affect + negative_affect",
                   data=df).fit()
     st.write(mod.summary())
