@@ -129,10 +129,14 @@ def display(pg, df):
 
 
 def home():
-    st.title('Welcome')
-
+    st.title('Welcome to the World Happiness Report Analysis!')
+    st.write('Created by: Ryan Dancoes, Sydney Gallo, and Sandhya Sangappa\n')
+    st.write('The focus of our research is to understand what indicators influence a country’s happiness. We are looking to identify how indicators in the World  are associated with improvements in happiness for countries and broader regions. Our analysis will discern which indicator(s) should be improved to boost happiness and well-being for the people of a certain area.') 
+    st.write('This analysis is segmented into five sections, beginning with exploratory analysis of all dataset features. We explore Social Support, Life Expectancy, and GDP on separate pages based on results of this EDA.')
+    st.write('The final page, Happiness, explores the variable by region and on three dimensions.')
 
 def eda(df):
+    st.title('Exploratory Data Analysis')
     st.write('Distributions of Numerical Predictors')
     df.hist(figsize = (10,10))
     st.pyplot()
@@ -211,3 +215,4 @@ def main():
 
 
 main()
+             
