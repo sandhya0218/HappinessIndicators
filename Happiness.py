@@ -142,7 +142,7 @@ def home():
 
 def eda(df):
     st.title('Exploratory Data Analysis')
-    st.header('Distributions of Numerical Predictors')
+    st.write('Distributions of Numerical Predictors')
     df.hist(figsize = (10,10))
     st.pyplot()
 
