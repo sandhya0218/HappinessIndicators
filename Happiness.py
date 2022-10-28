@@ -187,6 +187,7 @@ def create_line_scatter(df, col):
 
 
 def happy(df):
+    st.title('Exploration of Happiness')
     # grouping the data by country name to get the region and happiness levels
     avg_hap = pd.DataFrame(df.groupby('country_name')[['happiness', 'region']].agg({'happiness': 'mean', 'region': pd.Series.mode})).reset_index().sort_values('happiness', ascending=False).set_index('country_name')
     fig = px.bar(avg_hap, x=avg_hap.index, y='happiness', title='Happiness by Region', color='region')
