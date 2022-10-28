@@ -133,7 +133,7 @@ def home():
 
 
 def eda(df):
-    df.hist()
+    df.hist(figsize = (10,10)
     st.pyplot()
 
     # heat map in plotly
