@@ -134,6 +134,7 @@ def home():
     st.write('The focus of our research is to understand what indicators influence a country’s happiness. We are looking to identify how indicators in the World  are associated with improvements in happiness for countries and broader regions. Our analysis will discern which indicator(s) should be improved to boost happiness and well-being for the people of a certain area.') 
     st.write('This analysis is segmented into five sections, beginning with exploratory analysis of all dataset features. We explore Social Support, Life Expectancy, and GDP on separate pages based on results of this EDA.')
     st.write('The final page, Happiness, explores the variable by region and on three dimensions.')
+    st.write('Please use the buttons on the left to explore our analysis!')
 
 def eda(df):
     st.title('Exploratory Data Analysis')
