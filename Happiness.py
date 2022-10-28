@@ -135,7 +135,7 @@ def home():
     
     st.title('Welcome to the World Happiness Report Analysis!')
     st.write('Created by: Ryan Dancoes, Sydney Gallo, and Sandhya Sangappa\n')
-    st.write('The focus of our research is to understand what indicators influence a country’s happiness. We are looking to identify how indicators in the World  are associated with improvements in happiness for countries and broader regions. Our analysis will discern which indicator(s) should be improved to boost happiness and well-being for the people of a certain area.') 
+    st.write('Our research focuses on understanding what indicators influence a country’s happiness. We are looking to identify how changes in indicators from the Gallup World Poll are associated with happiness for countries and broader regions. Our analysis will discern which indicator(s) should be improved to boost happiness and well-being for the people of a certain area.') 
     st.write('This analysis is segmented into five sections, beginning with exploratory analysis of all dataset features. We explore Social Support, Life Expectancy, and GDP on separate pages based on results of this EDA.')
     st.write('The final page, Happiness, explores the variable by region and on three dimensions.')
     st.write('Please use the buttons on the left to explore our analysis and interactive visualizations!')
@@ -169,7 +169,7 @@ def eda(df):
     fig = px.box(df, y='generosity', title='Distribution of Generosity')  # Generosity not on 0-1 scale
     st.plotly_chart(fig)
 
-    st.header('Linear Regression Summary')
+    st.write('Linear Regression Summary')
     mod = smf.ols("happiness ~ log_gdp_per_capita + social_support + healthy_life_expectancy_at_birth + freedom_to_make_life_choices + generosity + perceptions_of_corruption + positive_affect + negative_affect",
                   data=df).fit()
     st.write(mod.summary())
@@ -191,7 +191,6 @@ def create_line_scatter(df, col):
 
 
 def happy(df):
-    st.title('Exploration of Happiness')
     # grouping the data by country name to get the region and happiness levels
     avg_hap = pd.DataFrame(df.groupby('country_name')[['happiness', 'region']].agg({'happiness': 'mean', 'region': pd.Series.mode})).reset_index().sort_values('happiness', ascending=False).set_index('country_name')
     fig = px.bar(avg_hap, x=avg_hap.index, y='happiness', title='Happiness by Region', color='region')
